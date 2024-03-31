@@ -16,9 +16,11 @@ public class Film {
 	private String rating;
 	private String specialFeatures;
 	private List<Actor> actors;
+	private String filmLanguage;
 
 	public Film(int filmId, String title, String description, int releaseYear, int languageId, int rentalDuration,
-			double rentalRate, double lengthOfFilm, double replacementCost, String rating, String specialFeatures) {
+			double rentalRate, double lengthOfFilm, double replacementCost, String rating, String specialFeatures,
+			String filmLanguage) {
 		super();
 		this.filmId = filmId;
 		this.title = title;
@@ -31,11 +33,24 @@ public class Film {
 		this.replacementCost = replacementCost;
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
+		this.filmLanguage = filmLanguage;
+
+	}
+
+	public Film(int filmId, String title, int releaseYear, String rating, String description, String filmLanguage) {
+		super();
+		this.filmId = filmId;
+		this.title = title;
+		this.releaseYear = releaseYear;
+		this.rating = rating;
+		this.description = description;
+		this.filmLanguage = filmLanguage;
 
 	}
 
 	public Film() {
-
+		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	public int getFilmId() {
@@ -116,6 +131,14 @@ public class Film {
 
 	public void setSpecialFeatures(String specialFeatures) {
 		this.specialFeatures = specialFeatures;
+	}
+
+	public String getlanguage() {
+		return filmLanguage;
+	}
+
+	public void setlanguage(String filmLanguage) {
+		this.filmLanguage = filmLanguage;
 	}
 
 	@Override
