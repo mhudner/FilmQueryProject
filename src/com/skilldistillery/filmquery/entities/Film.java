@@ -32,6 +32,7 @@ public class Film {
 	}
 
 	public Film() {
+		super();
 	}
 
 	public Film(int filmId, String title, int releaseYear, String description, int languageId, String rating,
@@ -49,6 +50,14 @@ public class Film {
 
 	public Film(int filmId, String title, short releaseYear, int languageId, String rating, String description,
 			String filmLanguage) {
+		super();
+		this.filmId = filmId;
+		this.title = title;
+		this.description = description;
+		this.releaseYear = releaseYear;
+		this.languageId = languageId;
+		this.rating = rating;
+		this.filmLanguage = filmLanguage;
 		// TODO Auto-generated constructor stub
 	}
 

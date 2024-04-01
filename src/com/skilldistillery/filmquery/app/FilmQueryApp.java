@@ -59,9 +59,9 @@ public class FilmQueryApp {
 
 				// if (flag != null) {
 				// Title, year, rating and description
-				System.out.println("Film id #: " + film.getFilmId() + "Film Title: " + film.getTitle()
-						+ "Year Released: " + film.getReleaseYear() + "Film Rating: " + film.getRating()
-						+ "Film Description: " + film.getDescription());
+				System.out.println("Film id #: " + film.getFilmId() + "\nFilm Title: " + film.getTitle()
+						+ "\nYear Released: " + film.getReleaseYear() + "\nFilm Rating: " + film.getRating()
+						+ "\nFilm Description: " + film.getDescription());
 				// film.actorById to get actor
 
 //				else {
