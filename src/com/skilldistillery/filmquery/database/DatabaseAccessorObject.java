@@ -54,7 +54,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			ResultSet idResult = stmt.executeQuery();
 			if (idResult.next()) {
 
-				int _filmId = idResult.getInt("id");
+				int filmId1 = idResult.getInt("id");
 				String title = idResult.getString("title");
 				String description = idResult.getString("description");
 				int languageId = idResult.getInt("language_id");
@@ -63,7 +63,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				String filmLanguage = idResult.getString("");
 				// film = new Film(_filmId, title, description, releaseYear, languageId, rating,
 				// filmLanguage);
-				film.setFilmId(filmId);
+				film.setFilmId(filmId1);
 				film.setTitle(title);
 				film.setDescription(description);
 				film.setLanguageId(languageId);
@@ -74,9 +74,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				idResult.close();
 				stmt.close();
 				conn.close();
-			} else {
-
-				System.out.println("Boobies :)");
 			}
 		} catch (SQLException e) {
 		}
