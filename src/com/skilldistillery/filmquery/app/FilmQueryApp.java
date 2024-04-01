@@ -72,11 +72,21 @@ public class FilmQueryApp {
 				System.out.println("Please enter a keyword to search: ");
 				String keyword = kb.nextLine();
 				List<Film> films = db.findFilmByKeyword(keyword);
-				if (films.size() > 0) {
+				if (films.size() < 0) {
 					for (Film film2 : films) {
 						System.out.println("Film id #: " + film2.getFilmId() + "Film Title: " + film2.getTitle()
 								+ "Year Released: " + film2.getReleaseYear() + "Film Rating: " + film2.getRating()
 								+ "Film Description: " + film2.getDescription());
+						System.out.println("");
+						System.out.println("Press 1 to view all film details");
+						System.out.println("Press 2 to return to the main menu");
+						userInput = kb.nextInt();
+						if (userInput == 1) {
+//							viewAllDetails();
+
+						} else {
+
+						}
 					}
 				} else {
 					System.out.println("We have no film matching that criteria, please try again or EXIT the program.");

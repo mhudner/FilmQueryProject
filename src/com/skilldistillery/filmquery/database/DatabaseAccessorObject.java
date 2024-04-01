@@ -130,12 +130,11 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 					+ "WHERE title LIKE '?' AND OR description LIKE '?'";
 			// System.out.println(sql);
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, "%" + keyword + "%");
-			stmt.setString(2, "%" + keyword + "%");
+			stmt.setString(1, '%' + keyword + '%');
+			stmt.setString(2, '%' + keyword + '%');
 			// System.out.println(stmt);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				film1 = new Film();
 				// int filmId = rs.getInt("film_id");
 				String title = rs.getString("title");
 				String description = rs.getString("description");
@@ -206,6 +205,47 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return actor;
 
+	}
+
+	public Film viewAllDetails(String film) {
+
+		Film film1 = null;
+		String user = "student";
+		String pass = "student";
+
+		try {
+			Connection conn = DriverManager.getConnection(URL, user, pass);
+			String sql = "SELECT film.rental_duration, film.rental_rate, film.length, film.replacement_cost, film.special_features, language.name "
+					+ " FROM film" + "JOIN language ON film.language_id = language.id";
+
+			// System.out.println(sql);
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, film);
+			// System.out.println(stmt);
+			ResultSet detailSet = stmt.executeQuery();
+			while (detailSet.next()) {
+				int rentalDuration = detailSet.getInt("rental_duration");
+				double rentalRate = detailSet.getDouble("rental_rate");
+				double length = detailSet.getDouble("length");
+				int replacementCost = detailSet.getInt("replacement_cost");
+				String rating = detailSet.getString("rating");
+				String specialFeatures = detailSet.getString("special_features");
+				String filmLanguage = detailSet.getString("name");
+
+				Film filmDetail = new Film(rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures,
+						filmLanguage);
+
+			}
+
+			detailSet.close();
+			stmt.close();
+			conn.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return film1;
 	}
 
 }

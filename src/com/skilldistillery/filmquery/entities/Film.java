@@ -30,18 +30,17 @@ public class Film {
 		this.filmLanguage = filmLanguage;
 
 	}
-//	public Film(int filmId, String title, int releaseYear, String description, int languageId, String rating,
-//			String filmLanguage) {
-//		super();
-//		this.filmId = filmId;
-//		this.title = title;
-//		this.description = description;
-//		this.releaseYear = releaseYear;
-//		this.languageId = languageId;
-//		this.rating = rating;
-//		this.filmLanguage = filmLanguage;
-//		// TODO Auto-generated constructor stub
-//	}
+
+	public Film(String title, String description, int releaseYear, int languageId, String rating, String filmLanguage) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.releaseYear = releaseYear;
+		this.languageId = languageId;
+		this.rating = rating;
+		this.filmLanguage = filmLanguage;
+		// TODO Auto-generated constructor stub
+	}
 
 	public Film(int filmId, String title, int releaseYear, String description, int languageId, String rating,
 			String filmLanguage) {
@@ -56,7 +55,8 @@ public class Film {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Film(int filmId, String title, short releaseYear, int languageId, String rating, String description,
+	public Film(int filmId, String title, String description, int releaseYear, int languageId, int rentalDuration,
+			double rentalRate, double lengthOfFilm, double replacementCost, String rating, String specialFeatures,
 			String filmLanguage) {
 		super();
 		this.filmId = filmId;
@@ -64,9 +64,37 @@ public class Film {
 		this.description = description;
 		this.releaseYear = releaseYear;
 		this.languageId = languageId;
+		this.rentalDuration = rentalDuration;
+		this.lengthOfFilm = lengthOfFilm;
+		this.replacementCost = replacementCost;
 		this.rating = rating;
+		this.specialFeatures = specialFeatures;
 		this.filmLanguage = filmLanguage;
 		// TODO Auto-generated constructor stub
+	}
+
+//	public Film1(int filmId1, String title1, String description1, int releaseYear1, int languageId1, int rentalDuration1,
+//			double rentalRate1, double lengthOfFilm1, double replacementCost1, String rating1, String specialFeatures1,
+//			String filmLanguage1) {
+//		super();
+//		this.filmId1 = filmId1;
+//		this.title1 = title1;
+//		this.description1 = description1;
+//		this.releaseYear1 = releaseYear1;
+//		this.languageId1 = languageId1;
+//		this.rentalDuration1 = rentalDuration1;
+//		this.lengthOfFilm1 = lengthOfFilm1;
+//		this.replacementCost1 = replacementCost1;
+//		this.rating1 = rating1;
+//		this.specialFeatures1 = specialFeatures1;
+//		this.filmLanguage1 = filmLanguage1;
+//		// TODO Auto-generated constructor stub
+//	}
+
+	public Film(int rentalDuration2, double rentalRate2, double length, int replacementCost2, String rating2,
+			String specialFeatures2, String filmLanguage2) {
+		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	public int getFilmId() {
@@ -113,8 +141,8 @@ public class Film {
 		return rentalDuration;
 	}
 
-	public void setRentalDuration(int rentalDuration) {
-		this.rentalDuration = rentalDuration;
+	public void setRentalDuration(int rentalDuration2) {
+		this.rentalDuration = rentalDuration2;
 	}
 
 	public double getLengthOfFilm() {
