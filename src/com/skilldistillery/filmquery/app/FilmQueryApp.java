@@ -55,9 +55,7 @@ public class FilmQueryApp {
 
 				int filmId = kb.nextInt();
 				Film film = db.findFilmById(filmId);
-				// int flag = film.getFilmId();
 
-				// if (flag != null) {
 				// Title, year, rating and description
 				System.out.println("Film id #: " + film.getFilmId() + "\nFilm Title: " + film.getTitle()
 						+ "\nYear Released: " + film.getReleaseYear() + "\nFilm Rating: " + film.getRating()
