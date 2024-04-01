@@ -18,8 +18,7 @@ public class Film {
 	private List<Actor> actors;
 	private String filmLanguage;
 
-	public Film(int filmId, String title, String description, int releaseYear, int languageId, int rentalDuration,
-			double rentalRate, double lengthOfFilm, double replacementCost, String rating, String specialFeatures,
+	public Film(int filmId, String title, String description, int releaseYear, int languageId, String rating,
 			String filmLanguage) {
 		super();
 		this.filmId = filmId;
@@ -27,30 +26,30 @@ public class Film {
 		this.description = description;
 		this.releaseYear = releaseYear;
 		this.languageId = languageId;
-		this.rentalDuration = rentalDuration;
-		this.rentalRate = rentalRate;
-		this.lengthOfFilm = lengthOfFilm;
-		this.replacementCost = replacementCost;
 		this.rating = rating;
-		this.specialFeatures = specialFeatures;
-		this.filmLanguage = filmLanguage;
-
-	}
-
-	public Film(int filmId, String title, int releaseYear, String rating, String description, String filmLanguage) {
-		super();
-		this.filmId = filmId;
-		this.title = title;
-		this.releaseYear = releaseYear;
-		this.rating = rating;
-		this.description = description;
 		this.filmLanguage = filmLanguage;
 
 	}
 
 	public Film() {
-		// TODO Auto-generated constructor stub
+	}
+
+	public Film(int filmId, String title, int releaseYear, String description, int languageId, String rating,
+			String filmLanguage) {
 		super();
+		this.filmId = filmId;
+		this.title = title;
+		this.description = description;
+		this.releaseYear = releaseYear;
+		this.languageId = languageId;
+		this.rating = rating;
+		this.filmLanguage = filmLanguage;
+		// TODO Auto-generated constructor stub
+	}
+
+	public Film(int filmId, String title, short releaseYear, int languageId, String rating, String description,
+			String filmLanguage) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getFilmId() {

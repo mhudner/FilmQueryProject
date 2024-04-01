@@ -13,15 +13,15 @@ public class FilmQueryApp {
 
 	public static void main(String[] args) {
 		FilmQueryApp app = new FilmQueryApp();
-		app.test();
+		// app.test();
 		app.launch();
 		// app.showMenu();
 	}
-
-	private void test() {
-		Film film = db.findFilmById(1);
-		System.out.println(film);
-	}
+//
+//	private void test() {
+//		Film film = db.findFilmById(1);
+//		System.out.println(film);
+//	}
 
 	private void launch() {
 		Scanner input = new Scanner(System.in);
@@ -52,12 +52,21 @@ public class FilmQueryApp {
 			switch (userInput) {
 			case 1:
 				System.out.println("Please enter the film id # you are trying to locate: ");
+
 				int filmId = kb.nextInt();
 				Film film = db.findFilmById(filmId);
+				// int flag = film.getFilmId();
+
+				// if (flag != null) {
 				// Title, year, rating and description
 				System.out.println("Film id #: " + film.getFilmId() + "Film Title: " + film.getTitle()
 						+ "Year Released: " + film.getReleaseYear() + "Film Rating: " + film.getRating()
 						+ "Film Description: " + film.getDescription());
+				// film.actorById to get actor
+
+//				else {
+//					
+//				}
 				continue;
 
 			case 2:
