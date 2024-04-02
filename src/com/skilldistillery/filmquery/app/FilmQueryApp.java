@@ -10,6 +10,7 @@ import com.skilldistillery.filmquery.entities.Film;
 public class FilmQueryApp {
 
 	DatabaseAccessor db = new DatabaseAccessorObject();
+	Scanner kb = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		FilmQueryApp app = new FilmQueryApp();
@@ -32,7 +33,6 @@ public class FilmQueryApp {
 	}
 
 	private void startUserInterface(Scanner input) {
-		Scanner kb = new Scanner(System.in);
 
 		System.out.println("Welcome to the Skill Distillery Film Database!");
 
@@ -57,53 +57,63 @@ public class FilmQueryApp {
 				Film film = db.findFilmById(filmId);
 
 				// Title, year, rating and description
-				System.out.println("Film id #: " + film.getFilmId() + "\nFilm Title: " + film.getTitle()
-						+ "\nYear Released: " + film.getReleaseYear() + "\nFilm Rating: " + film.getRating()
-						+ "\nFilm Description: " + film.getDescription());
-				// film.actorById to get actor
+				if (userInput == filmId) {
+					System.out.println("***Film id #: " + film.getId() + "\nFilm Title: " + film.getTitle()
+							+ "\nYear Released: " + film.getReleaseYear() + "\nFilm Rating: " + film.getRating()
+							+ "\nFilm Description: " + film.getDescription());
 
-//				else {
-//					
-//				}
-				continue;
-
-			case 2:
-				kb.nextLine();
-				System.out.println("Please enter a keyword to search: ");
-				String keyword = kb.nextLine();
-				List<Film> films = db.findFilmByKeyword(keyword);
-				if (films.size() < 0) {
-					for (Film film2 : films) {
-						System.out.println("Film id #: " + film2.getFilmId() + "Film Title: " + film2.getTitle()
-								+ "Year Released: " + film2.getReleaseYear() + "Film Rating: " + film2.getRating()
-								+ "Film Description: " + film2.getDescription());
-						System.out.println("");
-						System.out.println("Press 1 to view all film details");
-						System.out.println("Press 2 to return to the main menu");
-						userInput = kb.nextInt();
-						if (userInput == 1) {
-//							viewAllDetails();
-
-						} else {
-
-						}
-					}
 				} else {
 					System.out.println("We have no film matching that criteria, please try again or EXIT the program.");
 					System.out.println("Thank you!");
 				}
-				continue;
-			case 3:
-				System.out.println("Sorry you couldn't find the film you were looking for!");
-				System.out.println("Have a great day and visit us again soon!");
+
 				break;
 
-			default:
-				continue;
+			case 2:
+				// kb.nextLine();
+				System.out.println("Please enter a keyword to search: ");
+				String keyword = kb.nextLine();
+				List<Film> films = db.findFilmByKeyword(keyword);
+				if (films.size() > 0) {
+					Film film1 = new Film();
+					System.out.println("***Film id #: " + film1.getId() + "\nFilm Title: " + film1.getTitle()
+							+ "\nYear Released: " + film1.getReleaseYear() + "\nFilm Rating: " + film1.getRating()
+							+ "\nFilm Description: " + film1.getDescription());
+					// Film film2 = new Film();
+					// System.out.println(film2.toString());
+					runSubMenu(films);
+					break;
+				}
 
+				else {
+					System.out.println(
+							"********************************We have no film matching that criteria, please try again or EXIT the program.");
+					System.out.println("Thank you!");
+					break;
+				}
 			}
 
+			// }
+
 		} while (userInput != 3);
+	}
+
+	public void runSubMenu(List<Film> films) {
+		// Film film = new Film();
+
+		// Return to the main menu. View all film details
+		System.out.println(" ---------------------------------------");
+		System.out.println("|      1. View all film details         |");
+		System.out.println("|      2. Return to main menu           |");
+		System.out.println(" ---------------------------------------");
+
+		int userInput = kb.nextInt();
+		if (userInput == 1) {
+			System.out.println(films.toString());
+		} else {
+			startUserInterface(kb);
+		}
+
 	}
 
 }

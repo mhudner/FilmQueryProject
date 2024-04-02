@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Film {
-	private int filmId;
+	private int id;
 	private String title;
 	private String description;
 	private int releaseYear;
@@ -18,91 +18,34 @@ public class Film {
 	private List<Actor> actors;
 	private String filmLanguage;
 
-	public Film(int filmId, String title, String description, int releaseYear, int languageId, String rating,
-			String filmLanguage) {
-		super();
-		this.filmId = filmId;
-		this.title = title;
-		this.description = description;
-		this.releaseYear = releaseYear;
-		this.languageId = languageId;
-		this.rating = rating;
-		this.filmLanguage = filmLanguage;
+	public Film() {
 
 	}
 
-	public Film(String title, String description, int releaseYear, int languageId, String rating, String filmLanguage) {
-		super();
-		this.title = title;
-		this.description = description;
-		this.releaseYear = releaseYear;
-		this.languageId = languageId;
-		this.rating = rating;
-		this.filmLanguage = filmLanguage;
-		// TODO Auto-generated constructor stub
-	}
-
-	public Film(int filmId, String title, int releaseYear, String description, int languageId, String rating,
-			String filmLanguage) {
-		super();
-		this.filmId = filmId;
-		this.title = title;
-		this.description = description;
-		this.releaseYear = releaseYear;
-		this.languageId = languageId;
-		this.rating = rating;
-		this.filmLanguage = filmLanguage;
-		// TODO Auto-generated constructor stub
-	}
-
-	public Film(int filmId, String title, String description, int releaseYear, int languageId, int rentalDuration,
+	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
 			double rentalRate, double lengthOfFilm, double replacementCost, String rating, String specialFeatures,
 			String filmLanguage) {
 		super();
-		this.filmId = filmId;
+		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.releaseYear = releaseYear;
 		this.languageId = languageId;
 		this.rentalDuration = rentalDuration;
+		this.rentalRate = rentalRate;
 		this.lengthOfFilm = lengthOfFilm;
 		this.replacementCost = replacementCost;
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
 		this.filmLanguage = filmLanguage;
-		// TODO Auto-generated constructor stub
 	}
 
-//	public Film1(int filmId1, String title1, String description1, int releaseYear1, int languageId1, int rentalDuration1,
-//			double rentalRate1, double lengthOfFilm1, double replacementCost1, String rating1, String specialFeatures1,
-//			String filmLanguage1) {
-//		super();
-//		this.filmId1 = filmId1;
-//		this.title1 = title1;
-//		this.description1 = description1;
-//		this.releaseYear1 = releaseYear1;
-//		this.languageId1 = languageId1;
-//		this.rentalDuration1 = rentalDuration1;
-//		this.lengthOfFilm1 = lengthOfFilm1;
-//		this.replacementCost1 = replacementCost1;
-//		this.rating1 = rating1;
-//		this.specialFeatures1 = specialFeatures1;
-//		this.filmLanguage1 = filmLanguage1;
-//		// TODO Auto-generated constructor stub
-//	}
-
-	public Film(int rentalDuration2, double rentalRate2, double length, int replacementCost2, String rating2,
-			String specialFeatures2, String filmLanguage2) {
-		// TODO Auto-generated constructor stub
-		super();
+	public int getId() {
+		return id;
 	}
 
-	public int getFilmId() {
-		return filmId;
-	}
-
-	public void setFilmId(int filmId) {
-		this.filmId = filmId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -141,8 +84,8 @@ public class Film {
 		return rentalDuration;
 	}
 
-	public void setRentalDuration(int rentalDuration2) {
-		this.rentalDuration = rentalDuration2;
+	public void setRentalDuration(int rentalDuration) {
+		this.rentalDuration = rentalDuration;
 	}
 
 	public double getLengthOfFilm() {
@@ -187,7 +130,7 @@ public class Film {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(actors, description, filmId, languageId, lengthOfFilm, rating, releaseYear, rentalDuration,
+		return Objects.hash(actors, description, id, languageId, lengthOfFilm, rating, releaseYear, rentalDuration,
 				replacementCost, specialFeatures, title);
 	}
 
@@ -200,8 +143,8 @@ public class Film {
 		if (getClass() != obj.getClass())
 			return false;
 		Film other = (Film) obj;
-		return Objects.equals(actors, other.actors) && Objects.equals(description, other.description)
-				&& filmId == other.filmId && languageId == other.languageId && lengthOfFilm == other.lengthOfFilm
+		return Objects.equals(actors, other.actors) && Objects.equals(description, other.description) && id == other.id
+				&& languageId == other.languageId && lengthOfFilm == other.lengthOfFilm
 				&& Objects.equals(rating, other.rating) && releaseYear == other.releaseYear
 				&& rentalDuration == other.rentalDuration
 				&& Double.doubleToLongBits(replacementCost) == Double.doubleToLongBits(other.replacementCost)
@@ -218,10 +161,11 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return "Film ID: " + filmId + "/nTitle: " + title + "/nDescription: " + description + "/nRelease Year: "
-				+ releaseYear + "/nLanguage Id: " + languageId + "/nRental Duration: " + rentalDuration
-				+ "/nRental Rate: " + rentalRate + "/nLength Of Film: " + lengthOfFilm + "/nReplacement Cost: "
-				+ replacementCost + "/nRating: " + rating + "/nSpecial Features: " + specialFeatures;
+		return "Film ID: " + id + "\nTitle: " + title + "\nDescription: " + description + "\nRelease Year: "
+				+ releaseYear + "\nLanguage Id: " + languageId + "\nRental Duration: " + rentalDuration
+				+ "\nRental Rate: " + rentalRate + "\nLength Of Film: " + lengthOfFilm + "\nReplacement Cost: "
+				+ replacementCost + "\nRating: " + rating + "\nSpecial Features: " + specialFeatures
+				+ "\n\n********************************************************************************************";
 	}
 
 	public double getRentalRate() {
