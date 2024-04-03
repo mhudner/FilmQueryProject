@@ -38,6 +38,7 @@ public class Film {
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
 		this.filmLanguage = filmLanguage;
+
 	}
 
 	public int getId() {
@@ -157,6 +158,12 @@ public class Film {
 
 	public void setActors(List<Actor> actors) {
 		this.actors = actors;
+	}
+
+	public String printBasicInfo() {
+		return "Title: " + title + "\nRelease Year: " + releaseYear + "\nRating: " + rating + "\nDescription: "
+				+ description
+				+ "\n\n********************************************************************************************";
 	}
 
 	@Override
