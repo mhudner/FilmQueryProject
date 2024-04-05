@@ -25,7 +25,7 @@ public class Actor {
 	}
 
 	public void printActors() {
-		System.out.println(firstName + " " + lastName);
+		System.out.println("   " + firstName + " " + lastName);
 	}
 
 	public int getId() {

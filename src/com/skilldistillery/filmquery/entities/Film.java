@@ -17,6 +17,7 @@ public class Film {
 	private String specialFeatures;
 	private List<Actor> actors;
 	private String filmLanguage;
+	private String filmCategory;
 
 	public Film() {
 
@@ -24,7 +25,7 @@ public class Film {
 
 	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
 			double rentalRate, double lengthOfFilm, double replacementCost, String rating, String specialFeatures,
-			String filmLanguage) {
+			String filmLanguage, String filmCategory) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -38,6 +39,7 @@ public class Film {
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
 		this.filmLanguage = filmLanguage;
+		this.filmCategory = filmCategory;
 
 	}
 
@@ -161,8 +163,19 @@ public class Film {
 	}
 
 	public String printBasicInfo() {
+		System.out.println(
+				"\n\n********************************************************************************************");
+
 		return "Title: " + title + "\nRelease Year: " + releaseYear + "\nRating: " + rating + "\nDescription: "
-				+ description
+				+ description;
+
+	}
+
+	public String printAllDetails() {
+		return "Film ID: " + id + "\nTitle: " + title + "\nDescription: " + description + "\nRelease Year: "
+				+ releaseYear + "\nLanguage Id: " + languageId + "\nRental Duration: " + rentalDuration
+				+ "\nRental Rate: " + rentalRate + "\nLength Of Film: " + lengthOfFilm + "\nReplacement Cost: "
+				+ replacementCost + "\nRating: " + rating + "\nSpecial Features: " + specialFeatures
 				+ "\n\n********************************************************************************************";
 	}
 
@@ -172,6 +185,7 @@ public class Film {
 				+ releaseYear + "\nLanguage Id: " + languageId + "\nRental Duration: " + rentalDuration
 				+ "\nRental Rate: " + rentalRate + "\nLength Of Film: " + lengthOfFilm + "\nReplacement Cost: "
 				+ replacementCost + "\nRating: " + rating + "\nSpecial Features: " + specialFeatures
+				+ "\nFilm Language: " + filmLanguage + "Film category: " + filmCategory
 				+ "\n\n********************************************************************************************";
 	}
 

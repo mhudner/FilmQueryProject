@@ -11,9 +11,10 @@ import com.skilldistillery.filmquery.entities.Film;
 
 public class FilmQueryApp {
 
-	DatabaseAccessor db = new DatabaseAccessorObject();
-	Scanner kb = new Scanner(System.in);
-	List<Film> films = new ArrayList<>();
+	private DatabaseAccessor db = new DatabaseAccessorObject();
+	private Scanner kb = new Scanner(System.in);
+	private List<Film> films = new ArrayList<>();
+	private Film film = null;
 
 	public static void main(String[] args) {
 		FilmQueryApp app = new FilmQueryApp();
@@ -56,9 +57,9 @@ public class FilmQueryApp {
 				System.out.println("Please enter the film id # you are trying to locate: ");
 
 				int filmId = kb.nextInt();
+				film = db.findFilmById(filmId);
 				kb.nextLine();
 				// System.out.println("film_id" + filmId);
-				Film film = db.findFilmById(filmId);
 				// Title, year, rating and description
 				if (film == null) {
 					System.out.println("We have no film matching that criteria, please try again or EXIT the program.");
@@ -68,7 +69,9 @@ public class FilmQueryApp {
 					System.out.println(film.printBasicInfo());
 
 					List<Actor> actors = db.findActorsByFilmId(filmId);
-					System.out.println("Cast:\n");
+					System.out.println(" --------------------");
+					System.out.println("|        Cast        |");
+					System.out.println(" --------------------");
 					for (Actor actor : actors) {
 						actor.printActors();
 					}
@@ -92,8 +95,7 @@ public class FilmQueryApp {
 				}
 
 				else {
-					System.out.println(
-							"********************************We have no film matching that criteria, please try again or EXIT the program.");
+					System.out.println("We have no film matching that criteria, please try again or EXIT the program.");
 					System.out.println("Thank you!");
 					break;
 				}
@@ -105,7 +107,6 @@ public class FilmQueryApp {
 	}
 
 	public void runSubMenu() {
-		// Film film = new Film();
 
 		// Return to the main menu. View all film details
 		System.out.println(" ---------------------------------------");
@@ -116,7 +117,7 @@ public class FilmQueryApp {
 		int userInput = kb.nextInt();
 		kb.nextLine();
 		if (userInput == 1) {
-			System.out.println(films.toString());
+			film.printAllDetails();
 		} else {
 			startUserInterface();
 		}
